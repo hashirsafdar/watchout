@@ -1,8 +1,6 @@
 # watchout
 
-the most powerful interpretation of a cube since Pablo's fire  
-
-
+### the most powerful interpretation of a cube since Pablo's fire  
 
 this was made completely in LibGDX, [check it out here!](https://libgdx.badlogicgames.com/)
 
