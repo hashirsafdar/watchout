@@ -5,7 +5,7 @@
 
 package sfn.watchout;
 
-// TODO: create menu, save high score, control app when off, control finger movement
+// TODO: create menu, control app when off, control finger movement
 // when game ends, pause 2sec, go back to main screen
 // pass game to screen for setscreen instruction
 // add instruction on main screen - 'keep your finger on the screen!'
