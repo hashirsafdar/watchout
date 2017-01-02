@@ -1,6 +1,6 @@
 
 /*
-    game screen for single player, also deals with HUD
+    game screen for single player, also deals with HUD and topscore
 */
 
 package sfn.watchout;
