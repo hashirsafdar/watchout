@@ -20,7 +20,7 @@ public class Constants
     public static final float PLAYER_MOVEMENT_SPEED = 40;
     public static final float PLAYER_SIZE = 10;
     public static final Color PLAYER_COLOR = new Color(0.373f, 0.361f, 0.080f, 1); // 95, 92, 20
-    // topscore is saved as a integer preference as "topscore"
+    // topscore is saved as an integer preference as "topscore"
 
     public static final float GATE_HEIGHT = 10;
     public static final float GAP_WIDTH = 15;
