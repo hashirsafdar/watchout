@@ -70,12 +70,12 @@ public class MenuScreen extends InputAdapter implements Screen
     public void render(float delta)
     {
         viewport.apply();
+        topScore = prefs.getInteger("topscore", 0);
 
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         renderer.setProjectionMatrix(viewport.getCamera().combined);
-
         renderer.begin(ShapeType.Filled);
 
         // rectangle and inner triangle for play button
@@ -153,6 +153,12 @@ public class MenuScreen extends InputAdapter implements Screen
         if(touchPosition.dst(Constants.MENU_PLAYBUTTON) < Constants.MENU_PLAYBUTTON_RADIUS)
         {
             game.showSinglePlayerScreen();
+        }
+
+        if(touchPosition.dst(Constants.MENU_RESETBUTTON) < Constants.MENU_RESETBUTTON_RADIUS)
+        {
+            prefs.putInteger("topscore", 0);
+            prefs.flush();
         }
         return true;
     }
