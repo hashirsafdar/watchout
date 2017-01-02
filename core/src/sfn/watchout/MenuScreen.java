@@ -1,11 +1,12 @@
 
 /*
-
+    menuscreen that is started when the game starts
+    deals with screens, resetting and displaying score
 */
 
 package sfn.watchout;
 
-// TODO: create menu, control app when off, control finger movement
+// TODO: create menu, control app when off, control finger movement, logo
 // when game ends, pause 2sec, go back to main screen
 // pass game to screen for setscreen instruction
 // add instruction on main screen - 'keep your finger on the screen!'
@@ -72,15 +73,23 @@ public class MenuScreen extends InputAdapter implements Screen
         renderer.setProjectionMatrix(viewport.getCamera().combined);
 
         renderer.begin(ShapeType.Filled);
-        renderer.rect(Constants.MENU_PLAYBUTTON.x - Constants.MENU_PLAYBUTTON_RADIUS,
-                Constants.MENU_PLAYBUTTON.y - Constants.MENU_PLAYBUTTON_RADIUS,
-                Constants.MENU_PLAYBUTTON_RADIUS*2, Constants.MENU_PLAYBUTTON_RADIUS*2,
+
+        // rectangle and inner triangle for play button
+        renderer.rect(Constants.MENU_PLAYBUTTON.x - Constants.MENU_BUTTON_RADIUS,
+                Constants.MENU_PLAYBUTTON.y - Constants.MENU_BUTTON_RADIUS,
+                Constants.MENU_BUTTON_RADIUS *2, Constants.MENU_BUTTON_RADIUS *2,
+                Constants.PLAYER_COLOR, Constants.PLAYER_COLOR, Constants.PLAYER_COLOR, Constants.PLAYER_COLOR);
+        renderer.triangle(Constants.MENU_PLAYBUTTON.x - Constants.MENU_BUTTON_RADIUS /2, Constants.MENU_PLAYBUTTON.y - Constants.MENU_BUTTON_RADIUS /2,
+                Constants.MENU_PLAYBUTTON.x + Constants.MENU_BUTTON_RADIUS /2, Constants.MENU_PLAYBUTTON.y,
+                Constants.MENU_PLAYBUTTON.x - Constants.MENU_BUTTON_RADIUS /2, Constants.MENU_PLAYBUTTON.y + Constants.MENU_BUTTON_RADIUS /2,
+                Constants.BACKGROUND_COLOR, Constants.BACKGROUND_COLOR, Constants.BACKGROUND_COLOR);
+
+        // rectangle for reset button
+        renderer.rect(Constants.MENU_RESETBUTTON.x - Constants.MENU_BUTTON_RADIUS,
+                Constants.MENU_RESETBUTTON.y - Constants.MENU_BUTTON_RADIUS,
+                Constants.MENU_BUTTON_RADIUS *2, Constants.MENU_BUTTON_RADIUS *2,
                 Constants.PLAYER_COLOR, Constants.PLAYER_COLOR, Constants.PLAYER_COLOR, Constants.PLAYER_COLOR);
 
-        renderer.triangle(Constants.MENU_PLAYBUTTON.x - Constants.MENU_PLAYBUTTON_RADIUS/2, Constants.MENU_PLAYBUTTON.y - Constants.MENU_PLAYBUTTON_RADIUS/2,
-                Constants.MENU_PLAYBUTTON.x + Constants.MENU_PLAYBUTTON_RADIUS/2, Constants.MENU_PLAYBUTTON.y,
-                Constants.MENU_PLAYBUTTON.x - Constants.MENU_PLAYBUTTON_RADIUS/2, Constants.MENU_PLAYBUTTON.y + Constants.MENU_PLAYBUTTON_RADIUS/2,
-                Constants.BACKGROUND_COLOR, Constants.BACKGROUND_COLOR, Constants.BACKGROUND_COLOR);
         renderer.end();
 
         batch.setProjectionMatrix(viewport.getCamera().combined);
@@ -126,7 +135,8 @@ public class MenuScreen extends InputAdapter implements Screen
     {
         touchPosition = viewport.unproject(new Vector2(screenX, screenY));
 
-        if(touchPosition.dst(Constants.MENU_PLAYBUTTON) < Constants.MENU_PLAYBUTTON_RADIUS)
+        // if player clicks on the play button
+        if(touchPosition.dst(Constants.MENU_PLAYBUTTON) < Constants.MENU_BUTTON_RADIUS)
         {
             game.showSinglePlayerScreen();
         }
