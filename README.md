@@ -6,4 +6,4 @@ this was made completely in LibGDX, [check it out here!](https://libgdx.badlogic
 
 this currently only works in Android, and all code is in the core directory  
 
-[feel free to play it here!](https://play.google.com/store/apps/details?id=sfn.watchout)
+[play it here!](https://play.google.com/store/apps/details?id=sfn.watchout)
