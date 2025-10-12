@@ -1,0 +1,6 @@
+/.gradle
+/html/build/
+html/build/
+.gradle/
+*.war
+.DS_Store
